@@ -103,7 +103,10 @@ section .infos{
 }
 
 .food{
-    background-color: crimson;
+    background-image: url("Apple.png");
+    background-size: cover;
+    background-position: center;
+    
 }
 
 .modal{

@@ -105,8 +105,6 @@ function render() {
 
     // food consume logic
     if(head.x == food.x && head.y == food.y){
-        console.log(score);
-        
         score++;
         blocks[`${food.x}-${food.y}`].classList.remove("food")
         food = {
@@ -144,8 +142,6 @@ startBtn.addEventListener("click", () => {
 
     timeIntervalId = setInterval(() => {
         let [min, sec] = time.split(":").map(Number)
-        console.log(min)
-
         if(sec === 59){
             min+=1;
             sec = 0;
