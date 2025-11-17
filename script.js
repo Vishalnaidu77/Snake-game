@@ -176,7 +176,7 @@ restartBtn.addEventListener("click", () => {
         snake = [
             {
                 x: 6,
-                y: 4
+                y: 5
             },
             {
                 x: 6,
