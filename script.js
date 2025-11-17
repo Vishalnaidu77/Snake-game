@@ -7,6 +7,10 @@ const start = document.querySelector(".start-game")
 let curScore = document.querySelector("#score")
 let highScoreElem = document.querySelector("#high-score")
 let timeElem = document.querySelector("#time")
+const upArrow = document.querySelector(".up-arrow")
+const downArrow = document.querySelector(".down-arrow")
+const leftArrow = document.querySelector(".left-arrow")
+const rightArrow = document.querySelector(".right-arrow")
 
 let score = 0;
 let highScore = localStorage.getItem("highscore") || 0;
@@ -121,9 +125,6 @@ function render() {
         }
         highScoreElem.innerText = highScore;
     }
-
-
-
 }
 
 
@@ -171,20 +172,38 @@ restartBtn.addEventListener("click", () => {
 
 
     blocks[`${food.x}-${food.y}`].classList.remove("food")
-    snake = [
-    {
-        x: 6,
-        y: 23
-    },
-    {
-        x: 6,
-        y: 24
-    },
-    {
-        x: 6,
-        y: 25
-    },
-    ]
+    if(window.innerWidth < 600){
+        snake = [
+            {
+                x: 6,
+                y: 10
+            },
+            {
+                x: 6,
+                y: 11
+            },
+            {
+                x: 6,
+                y: 12
+            },
+        ]
+    }
+    else{
+        snake = [
+            {
+                x: 6,
+                y: 23
+            },
+            {
+                x: 6,
+                y: 24
+            },
+            {
+                x: 6,
+                y: 25
+            },
+        ]
+    }
     food = {
         x: Math.floor(Math.random() * rows),
         y: Math.floor(Math.random() * cols)
@@ -195,3 +214,34 @@ restartBtn.addEventListener("click", () => {
         render()
     }, 200);
 })
+
+
+if(window.innerWidth < 600){
+    snake = [
+        {
+            x: 6,
+            y: 10
+        },
+        {
+            x: 6,
+            y: 11
+        },
+        {
+            x: 6,
+            y: 12
+        },
+    ]
+
+    upArrow.addEventListener("click", () => {
+        direction = 'up'
+    })
+    downArrow.addEventListener("click", () => {
+        direction = 'down'
+    })
+    leftArrow.addEventListener("click", () => {
+        direction = 'left'
+    })
+    rightArrow.addEventListener("click", () => {
+        direction = 'right'
+    })
+}
